@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>안녕 :-]</title>
+<script>
+
+function func(){
+         f.action="test1"; 
+         f.method="post";  //POST방식
+         f.submit();
+}
+</script>
+<script>
+
+function func2(){
+         f2.action="test2"; 
+         f2.method="post";  //POST방식
+         f2.submit();
+}
+</script>
+</head>
+<body>
+반가워 :-|<hr>
+<!-- "test1"는 논리적인 이름이다! -->
+<a href="test1">컨트롤러 만나보자구!1 (get)</a><br>
+<a href="javascript:func();">컨트롤러 만나보자구!1 (post)</a><br>
+<form name="f"></form>
+<a href="test2">컨트롤러 만나보자구!2</a><br>
+<a href="javascript:func2();">컨트롤러 만나보자구!2 (post)</a><br>
+<form name="f2"></form>
+<a href="test3">컨트롤러 만나보자구!3</a><br>
+
+<a href="test4">컨트롤러 만나보자구!4</a><br>
+<br>
+<form action="test5" method="post">
+	<input type="submit" value="컨트롤러 만나기 :-]">
+</form>
+<br>
+<form action="test6" method="post">
+	<input type="submit" value="컨트롤러 만나기 :-)">
+</form>
+<br>
+<form action="test7" method="post">
+	<input type="submit" value="컨트롤러 만나기 :-D">
+</form>
+<br>
+<a href="test8">데이터 얻기!</a><br>
+<a href="test8_1">데이터 얻어보자!8_1</a><br>
+
+<hr>
+두번째 컨트롤러와 매핑<br>
+<form action="test9">
+	<input type="submit" value="컨트롤러 만나기 :->">
+</form>
+
+<form action="test9" method="post">
+	<input type="submit" value="컨트롤러 만나기 :->(post)">
+</form>
+
+<hr>
+세번째 컨트롤러와 매핑<br>
+<a href="java/korea">3번째 컨트롤러! 가보자고!</a><br>
+<a href="java/good">3번째 컨트롤러! 가보자고!(good)</a><br>
+<a href="nice">3번째 컨트롤러! 가보자고!(nice)</a><br>
+<a href="ok">3번째 컨트롤러! 가보자고!(ok)</a><br>
+</body>
+</html>
