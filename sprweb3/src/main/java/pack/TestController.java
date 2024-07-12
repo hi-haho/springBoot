@@ -24,6 +24,10 @@ public class TestController {
 		modelAndView.setViewName("list");
 		//addObject() = request.setAttribute("msg", "안녕! jsp?");
 		//httpServletRequest를 사용해 키,값으로 jsp에 전송
+		
+		
+		
+		
 		modelAndView.addObject("msg", "안녕! jsp?");
 		return modelAndView;
 	}
@@ -55,7 +59,7 @@ public class TestController {
 		return new ModelAndView("list","msg", "벌써.. 6번 성공");
 	}
 	
-	@PostMapping("test7") //get 요청 처리
+	@PostMapping("test7")
 	public String hahahoho(Model model) {
 		//파일명(viewfileName)을 넘기는 것이다. 단순한 String이 아님. 어노테이션
 		model.addAttribute("msg", "행운의 7");
