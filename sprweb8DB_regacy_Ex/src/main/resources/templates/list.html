@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>list</title>
+</head>
+<body>
+<h2>직원</h2>
+<table border="1">
+	<th:block th:if="${list.size > 0}">
+	<tr>
+		<th>직원</th><th>👻직원명👻</th><th>성별</th><th>연봉</th>
+	</tr>
+	<tr th:each="data:${list}">
+		<td>[[${data.jikwonNo}]]</td>
+		<td>[[${data.jikwonName}]]</td>
+		<td>[[${data.jikwonName}]]</td>
+		<td>[[${data.jikwonPay}]]</td>
+	</tr>
+</table>
+</body>
+</html>

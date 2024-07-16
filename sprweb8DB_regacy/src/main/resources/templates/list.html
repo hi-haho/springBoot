@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>list</title>
+</head>
+<body>
+<h2>상품 목록(@MVC) : 전통적 방법을 사용</h2>
+<table border="1">
+	<th:block th:if="${list.size > 0}">
+	<tr>
+		<th>코드</th><th>👻단가👻</th><th>수량</th><th>단가</th>
+	</tr>
+	<tr th:each="data:${list}">
+		<td th:text="${data.code}">코드</td>
+		<td>[[${data.sang}]]</td>
+		<td>[[${data.su}]]</td>
+		<td>[[${data.dan}]]</td>
+	</tr>
+</table>
+</body>
+</html>

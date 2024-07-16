@@ -47,7 +47,7 @@ public class TestController {
 	public ModelAndView method3() { // ModelAndView는 구식~!~!
 		ModelAndView mav = new ModelAndView();
 		List<ItemDto> list = new ArrayList<ItemDto>();
-		
+		 
 		for(int i = 1 ; i <= 5 ; i++) {
 			ItemDto dto = new ItemDto();
 			dto.setId("item" + i);
@@ -63,11 +63,16 @@ public class TestController {
 	
 	@GetMapping("/ex4")
 	public String method4(Model model,@RequestParam("haha1") String haha1,@RequestParam("haha2") String haha2) {
-		System.out.println(haha1);
-		System.out.println(haha2);
 		model.addAttribute("gaga1",haha1);
 		model.addAttribute("gaga2",haha2);
 		return "show4";
 	}
+	
+	@GetMapping("/ex5")
+	public String method5() {
+		
+		return "show5";
+	}
+	
 
 }

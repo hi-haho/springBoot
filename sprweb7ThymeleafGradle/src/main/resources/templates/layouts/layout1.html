@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<title>😉🧐😉</title>
+<link rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<!-- th:block 마땅한 태그가 없는 경우 사용할 수 있다. -->
+	<th:block th:replace="fragments/header::header"></th:block>
+    <div layout:fragment="content" class="content"></div>
+    <th:block th:replace="fragments/footer::footer"></th:block>
+</body>
+</html>
