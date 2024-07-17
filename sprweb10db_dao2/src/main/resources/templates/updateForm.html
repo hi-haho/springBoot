@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>자세히 보기</title>
+</head>
+<body>
+	<h2>상세보기</h2>
+	<h4>[[${member.id}]] 님</h4>
+	<form th:action="@{/update}" method="post">
+		<input type="hidden" th:field="${member.id}"> 
+		<input type="hidden" th:field="${member.reg_date}">
+		회원명 : <input type="text" th:field="*{member.name}"><br>
+		비밀번호 : <input type="text" th:value="${member.passwd}" name="passwd"><br>
+		등록일 : [[${member.reg_date}]]<br>
+		<br>
+		<input type="submit" value="수 정"> &emsp;
+		<input type="button" value="이 전" onclick="history.back()">
+	</form>
+</body>
+</html>

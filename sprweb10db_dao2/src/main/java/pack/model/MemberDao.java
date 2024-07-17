@@ -55,9 +55,28 @@ public class MemberDao extends JdbcDaoSupport {
 		getJdbcTemplate().update(sql, params);
 	}
 	
+	// 특정 레코드 읽기
+	public MemberDto getMember(String id) {
+		String sql="select * from memberteb where id = ?";
+		return getJdbcTemplate().queryForObject(sql,new Object[] {id},(ResultSet rs, int rowNum)->{
+			MemberDto member = new MemberDto();
+			member.setId(rs.getString("id"));
+			member.setName(rs.getString("name"));
+			member.setPasswd(rs.getString("passwd"));
+			member.setReg_date(rs.getString("reg_date"));
+			return member;
+			});
+	}
+	
 	//update
+	public void upData(MemberBean bean) {
+		String sql = "update memberteb set passwd=? ,name=? where id=?";
+		getJdbcTemplate().update(sql,new Object[] {bean.getPasswd(),bean.getName(),bean.getId()});
+	}
 	
-	
-	//delect
-	
+	//delete
+	public void delete(String id) {
+		String sql = "delete from memberteb where id=?";
+		getJdbcTemplate().update(sql,new Object[] {id});
+	}
 }

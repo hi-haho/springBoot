@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import pack.model.MemberDao;
 
 @Controller
-public class insertController {
+public class InsertController {
 	@Autowired
 	private MemberDao dao;
 	/*

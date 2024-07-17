@@ -9,7 +9,7 @@
 
 <a href="insert">추가</a> &emsp;
 <!-- 서버에서 해석해서 브라우저에 던진것임, 브라우저는 html만 해석할 수 있다.(=> thymeleaf는 서버사이드 템플릿 엔진이다.) -->
-<a th:href="@{delete}">삭제</a>
+<!-- <a th:href="@{delete}">삭제</a> -->
 
 <th:block th:if="${list.size >0}">
 <table>

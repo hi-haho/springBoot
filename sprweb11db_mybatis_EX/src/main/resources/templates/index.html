@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>👻</title>
+</head>
+<body>
+<!-- 
+	<form action="jik"> http://localhost:8080/jik?jikwon=%EB%8C%80%EB%A6%AC
+		직급 입력 : <input type="text" name="jikwon">
+		<input type="submit" value="확 인">
+	</form>
+-->
+	<form th:action="@{/jik}" method="get">
+		직급입력 <input type="text" name="jikwon">
+		<input type="submit" value="확 인">
+	</form>
+</body>
+</html>

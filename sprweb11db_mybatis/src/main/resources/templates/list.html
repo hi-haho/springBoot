@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>list</title>
+</head>
+<body>
+<h2>상품 목록(@MVC) : MyBatis</h2>
+<table border="1">
+	<th:block th:if="${list.size > 0}">
+	<tr>
+		<th>번호</th><th>코드</th><th>👻단가👻</th><th>수량</th><th>단가</th>
+	</tr>
+	<tr th:each="data,numStatus:${list}">
+		<td th:text="${numStatus.index + 1}">index</td>
+		<td th:text="${data.code}">코드</td>
+		<td>[[${data.sang}]]</td>
+		<td>[[${data.su}]]</td>
+		<td>[[${#numbers.formatInteger(data.dan,3,'COMMA')}]]</td>
+	</tr>
+	<tr>
+		<td colspan="5">
+		<form th:action="@{/search}">
+		검색 상품명 : <input type="text" name="searchValue">
+		<input type="submit" value="검색">
+		</form>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="5" th:text="|건수 : ${list.size}|">건 수 </td>
+	</tr>
+</table>
+</body>
+</html>
