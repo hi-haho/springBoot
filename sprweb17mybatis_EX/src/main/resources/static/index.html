@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>insert</title>
+</head>
+<body>
+<h3>부서명 입력 및 평가등급을 선택하고 확인 버튼을 누르면 아래 결과 출력</h3>
+<form action="select" method="post">
+	부서명 : 
+	<select name="selectBuser">
+		<option value="10" selected="selected">총무부</option>
+		<option value="20">영업부</option>
+		<option value="30">전산부</option>
+		<option value="40">관리부</option>
+	</select>
+	<input type="submit" value=" 확 인 "><br>
+	평가 등급 :
+	<input type="radio" name="grade" value="all" selected="selected">전체
+	<input type="radio" name="grade" value="a">a
+	<input type="radio" name="grade" value="b">b
+	<input type="radio" name="grade" value="c">c
+</form>
+</body>
+</html>

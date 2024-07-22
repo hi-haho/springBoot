@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>List</title>
+</head>
+<body>
+<h2>결과</h2>
+<table border="1">
+	<tr>
+		<th>사번</th><th>이름</th><th>직급</th><th>연봉</th><th>평가</th>
+	</tr>
+	<th:block th:if="${list.size > 0}">
+		<tr th:each="data:${list}">
+			<td th:text=${data.jikwon_no}>jikwon_no</td>
+			<td th:text=${data.jikwon_name}>jikwon_name</td>
+			<td th:text=${data.jikwon_jik}>jikwon_jik</td>
+			<td th:text=${data.jikwon_pay}>jikwon_pay</td>
+			<td th:text=${data.jikwon_rating}>jikwon_rating</td>
+		</tr>
+			<tr>
+				<td colspan="5">연봉 평균 :</td> 
+			</tr>
+		</th:block>
+	<!-- 검색 -->
+</table>
+</body>
+</html>

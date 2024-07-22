@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>updateForm</title>
+</head>
+<body>
+** 자료 입력 ** <br>
+<form th:action="@{/update}" method="post" th:object="${dto}">
+	<input type="hidden" th:field="*{num}">
+	번호 : <span th:text="${dto.num}"></span><br> <!-- 찍을때는 th:text -->
+	이름 : <input type="text" th:field="*{name}"><br>
+	주소 : <input type="text" th:field="*{addr}"><br><br>
+	<input type="submit" value="수 정">
+</form>
+</body>
+</html>

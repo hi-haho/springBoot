@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pack.model.MapInter">
+	<select id="selectAll" resultType="pack.model.JikwonData">
+		select * from jikwon order by jikwon_no desc
+	</select>
+	<select id="searchDataAll" parameterType="String">
+		select * from jikwon where buser_num= #{buser_num} order by jikwon_no desc
+	</select>
+	<select id="searchData" resultType="pack.model.JikwonData">
+		select * from jikwon where buser_num = #{buser_num} and jikwon_rating=#{jikwon_rating} order by jikwon_no desc
+	</select>
+</mapper>
