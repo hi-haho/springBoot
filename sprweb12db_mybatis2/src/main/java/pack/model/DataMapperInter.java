@@ -16,14 +16,14 @@ public interface DataMapperInter {
 	List<DataDto> selectAll();
 	
 	@Select("select * from mem where num=#{num}")
-	List<DataDto> selectOne(String num);
+	DataDto selectOne(String num);
 	
 	@Insert("insert into mem values(#{num},#{name},#{addr})")
 	int insertData(DataBean bean);
 	
-	@Update("update mem set name=#{name}, addr = #{addr} where num=#{num}")
+	@Update("update mem set name=#{name}, addr=#{addr} where num=#{num}")
 	int update(DataBean bean);
 	
-	@Delete("delect from mem where num=#{num}")
+	@Delete("delete from mem where num=#{num}")
 	int delete(String num);
 }
