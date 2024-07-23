@@ -19,42 +19,17 @@ public class DataDao {
 	/**
 	 *  전체 데이터 리스트출력
 	 */
-	public List<JikwonData> dataAll(){
+	public List<JikwonData> data(String buserNum, String rating){
 		ArrayList<JikwonData> list = null;
 		try {
-			list = (ArrayList<JikwonData>)inter.selectAll();
-		}catch (Exception e) {
-			logger.info("DataAll err : " + e.getMessage());
-		}
-		return list;
-		
-	}
-	/**
-	 *  특정 부서의 전체 데이터 리스트출력
-	 */
-	public List<JikwonData> searchAll(String selectBuser){
-		ArrayList<JikwonData> list = null;
-		try {
-			list = (ArrayList<JikwonData>)inter.searchDataAll(selectBuser);
-		}catch (Exception e) {
-			logger.info("DataAll err : " + e.getMessage());
-		}
-		return list;
-		
-	}
-	
-	/**
-	 *  검색 데이터 리스트출력
-	 */
-	public List<JikwonData> searchData(String selectBuser,String grade){
-		ArrayList<JikwonData> list = null;
-		try {
-			list = (ArrayList<JikwonData>)inter.searchData(selectBuser, grade);
-			System.out.println("****" + list);
+			if(rating.equals("all")) {
+				list = (ArrayList<JikwonData>)inter.searchDataAll(buserNum);
+			} else {				
+				list = (ArrayList<JikwonData>)inter.searchData(buserNum, rating);
+			}
 		} catch (Exception e) {
-			logger.info("searchData error : " + e);
+			logger.info("list err : " + e);
 		}
 		return list;
 	}
-	
 }
