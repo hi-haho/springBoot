@@ -44,7 +44,8 @@ public class MemberController {
 	}
 	@PostMapping("/member/update")
 	public String poetUpdate(Memberdto fbean) {
-		serviceInter.update(fbean);
+		//serviceInter.update(fbean);
+		serviceInter.update2(fbean);
 		return "member/update";
 	}
 	//-------------

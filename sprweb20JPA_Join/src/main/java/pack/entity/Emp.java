@@ -21,7 +21,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Emp { //emp 입장. 다대1
+public class Emp { //emp(직원) 입장. 다대1
 	@Id
 	private Integer empno;
 	private String ename;
@@ -34,7 +34,7 @@ public class Emp { //emp 입장. 다대1
 	//private int deptno;
 	
 	//fetch join
-	@ManyToOne(fetch =FetchType.EAGER)
+	@ManyToOne(fetch =FetchType.EAGER) //한명의 직원이 여러 고객을 만들 수 있다.
 	@JoinColumn(name="deptno",foreignKey = @ForeignKey(value=ConstraintMode.NO_CONSTRAINT))
 	private Dept dept;
 }

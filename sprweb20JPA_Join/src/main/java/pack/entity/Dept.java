@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Dept { //emp는 1대다 
+public class Dept { //dept는 1대다 
 	@Id
 	private int deptno;
 	private String dname;

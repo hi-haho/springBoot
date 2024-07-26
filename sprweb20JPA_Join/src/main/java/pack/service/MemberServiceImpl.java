@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+import jakarta.transaction.Transactional;
 import pack.dto.Memberdto;
 import pack.entity.Member;
 import pack.repository.MemberRepository;
@@ -60,14 +61,28 @@ public class MemberServiceImpl implements MemberServiceInter{//규모가 큰 경
 		//model.addAttribute("dto",m); -> 변환한것을 가져와야겠지
 		model.addAttribute("dto",Memberdto.toDto(m));
 	}
+	
 	@Override
 	public void update(Memberdto dto) {
 		memberRepository.save(Member.toEntity(dto));
-	}@Override
+	}
+	
+	@Transactional
+	@Override
 	public void update2(Memberdto dto) {
-		// TODO Auto-generated method stub
-		
-	}@Override
+		 Member m1 = memberRepository.findById(dto.getNum()).get();
+		 Member m2 = memberRepository.findById(dto.getNum()).get();
+		    
+		 // 동일성 검사
+		 boolean isEqual = m1 == m2;
+		 System.out.println("m1과 m2가 같냐?" + isEqual);
+		    
+		 // setter 메소드를 이용해서 이름과 주소 수정하기
+		 m1.setName(dto.getName());
+		 m1.setAddr(dto.getAddr());
+	}
+	
+	@Override
 	public void delete(Long num) {
 		memberRepository.deleteById(num);
 	}
