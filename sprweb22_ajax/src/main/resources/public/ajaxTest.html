@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#btnSingle").click(function(){
+		$("#showData").empty(); //비우기
+		$.ajax({
+			type:"get",
+			url:"list", //@GetMapping("list")
+			data:{
+				"name":"james"
+			},
+			dataType:"json",
+			success:function(data){
+				let str = data.name + "<br/>";
+				str +=data.skills[0] + ", ";
+				str +=data.skills[1] + " ";
+				$("#showData").append(str);
+			},
+			error:function(){
+				$("#showData").html("<b>에러 발생</b>")
+			}
+		})
+	});
+});
+
+$(document).ready(function(){
+	$("#btnMulti").click(function(){
+		$("#showData").empty(); //비우기
+		$.ajax({
+			type:"get",
+			url:"list2", //@GetMapping("list")
+			dataType:"json",
+			success:function(data){
+				let str = "<table>"
+				let list = data.datas; //data2.put("datas", dataList); 
+				//alert(list.length);
+				$(list).each(function(idx,objArr){
+					str +="<tr>";
+					str +="<td>" + objArr["name"]+"</td>";
+					str +="<td>" + objArr.age+"</td>";
+					str +="</tr>";
+				})
+				str += "</table>"
+				$("#showData").append(str)
+			},
+			error:function(){
+				$("#showData").html("<b>에러 발생</b>")
+			}
+		})
+	});
+});
+</script>
+</head>
+<body>
+<button id="btnSingle">한개 읽기</button>&emsp;
+<button id="btnMulti">여러개 읽기</button>
+<hr/>
+<div id="showData"></div>
+</body>
+</html>
